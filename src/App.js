@@ -8,14 +8,14 @@ function App() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
-  console.log("userList: ", userList);
+
   return (
     <div className="App">
       {""}
       <div className="addUser">
         <input type="text" className="user-name" placeholder="Name" onChange={(e) => setName(e.target.value)} />
         <input type="text" className="user-username" onChange={(e) => setUserName(e.target.value)} placeholder="Surname" />
-        <button className="user-add-button" onClick={() => dispatch(addUser({ id: 0, name, username }))}>
+        <button className="user-add-button" onClick={() => dispatch(addUser({ id: userList[userList.length - 1].id + 1, name, username }))}>
           Add User
         </button>
       </div>
